@@ -67,3 +67,154 @@
  *       200:
  *         description: Ответ
  */
+
+
+/**
+ * @openapi
+ * /api/files:
+ *   post:
+ *     tags: [Files]
+ *     summary: Создание папки
+ *     description: Создать директорию
+ *     security:
+ *      - bearerAuth: []
+ *     requestBody:
+ *        description: данные для регистрации
+ *        required: true
+ *        content:
+ *          application/json:
+ *               schema:
+ *                  type: object
+ *                  properties:
+ *                      name:
+ *                         type: string
+ *                      parent:
+ *                         description: ID родительской папки
+ *                         type: string
+ *     responses:
+ *       200:
+ *         description: Ответ
+ */
+
+/**
+ * @openapi
+ * /api/files:
+ *   delete:
+ *     tags: [Files]
+ *     summary: Удаление файла
+ *     description: Удалить файл по ID
+ *     security:
+ *      - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: id
+ *         schema:
+ *           description: ID файла для удаления
+ *           type: string
+ *           required: true
+ *     responses:
+ *       200:
+ *         description: File was deleted
+ */
+
+
+/**
+ * @openapi
+ * /api/files/upload:
+ *   post:
+ *     tags: [Files]
+ *     summary: Загрузить файл
+ *     description: загрузить файл. ВНИМАНИЕ! Не в JSON а в FORM-DATA
+ *     security:
+ *      - bearerAuth: []
+ *     requestBody:
+ *        required: true
+ *        content:
+ *          multipart/form-data:
+ *               schema:
+ *                  type: object
+ *                  properties:
+ *                      parent:
+ *                         description: ID родительской папки
+ *                         type: string
+ *                      file:
+ *                         description: файл полученный из инпута
+ *     responses:
+ *       200:
+ *         description: Ответ
+ */
+
+/**
+ * @openapi
+ * /api/files/avatar:
+ *   post:
+ *     tags: [Files]
+ *     summary: Загрузить avatar
+ *     description: загрузить avatar. ВНИМАНИЕ! Не в JSON а в FORM-DATA
+ *     security:
+ *      - bearerAuth: []
+ *     requestBody:
+ *        required: true
+ *        content:
+ *          multipart/form-data:
+ *               schema:
+ *                  type: object
+ *                  properties:
+ *                      file:
+ *                         description: файл полученный из инпута
+ *     responses:
+ *       200:
+ *         description: Ответ
+ */
+
+/**
+ * @openapi
+ * /api/files/avatar:
+ *   delete:
+ *     tags: [Files]
+ *     summary: Удалить аватар avatar
+ *     security:
+ *      - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Ответ
+ */
+
+/**
+ * @openapi
+ * /api/files/download:
+ *   get:
+ *     tags: [Files]
+ *     summary: Скачать файл
+ *     description: Загрузить файл
+ *     security:
+ *      - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: id
+ *         schema:
+ *           type: string
+ *           required: true
+ *     responses:
+ *       200:
+ *         description: Ответ
+ */
+
+/**
+ * @openapi
+ * /api/files/search:
+ *   delete:
+ *     tags: [Files]
+ *     summary: Поиск файла по названию
+ *     security:
+ *      - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *           required: true
+ *     responses:
+ *       200:
+ *         description: Список файлов
+ */
