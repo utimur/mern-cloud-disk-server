@@ -203,7 +203,7 @@
 /**
  * @openapi
  * /api/files/search:
- *   delete:
+ *   get:
  *     tags: [Files]
  *     summary: Поиск файла по названию
  *     security:
